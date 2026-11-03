@@ -1,5 +1,8 @@
 # 全国普通高等学校地图目录
 
+[![Test](https://github.com/1752370874-blip/campus-smart-navigation/actions/workflows/test.yml/badge.svg)](https://github.com/1752370874-blip/campus-smart-navigation/actions/workflows/test.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 这是一个独立的 Python + Streamlit 项目。它收录教育部截至 2026 年 6 月 17 日公布的 **2,952 所普通高等学校**（本科与高职），支持按省份、名称和办学层次检索，并提供无标记的全国底图。
 
 ## 当前边界
@@ -62,11 +65,15 @@ streamlit run app.py
 3. 校内地点经过审核，且不包含宿舍房间、门禁、安防等敏感位置；
 4. 路线服务基于授权或经过审核的可步行路网。
 
-## 发布到 GitHub
+## 仓库与发布
+
+- 仓库：<https://github.com/1752370874-blip/campus-smart-navigation>
+- 每次 push 或 PR 都会自动执行 [`.github/workflows/test.yml`](.github/workflows/test.yml)：在 Python 3.12 上安装依赖并运行 pytest。
 
 ```bash
-git add app.py data/institutions.csv scripts tests README.md requirements.txt .gitignore .github
-git commit -m "feat: add national regular higher-education catalogue"
-git remote add origin https://github.com/<你的用户名>/campus-smart-navigation.git
-git push -u origin main
+git clone https://github.com/1752370874-blip/campus-smart-navigation.git
 ```
+
+## 许可证
+
+代码以 [MIT](LICENSE) 协议发布。学校目录数据来自教育部公开发布的名单，使用时请保留来源与统计截止日期。

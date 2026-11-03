@@ -1,0 +1,13 @@
+# 统一换行符，避免 Windows 与 macOS/Linux 之间出现整文件 diff
+* text=auto eol=lf
+
+# 教育部目录是 UTF-8 with BOM 的 CSV，保持文本、固定 LF
+*.csv text eol=lf
+
+# 二进制文件不做任何转换
+*.xls binary
+*.xlsx binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
