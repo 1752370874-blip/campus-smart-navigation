@@ -140,9 +140,9 @@ def main() -> None:
     selected = results.loc[results["moe_id"] == selected_id].iloc[0] if selected_id else None
 
     count_one, count_two, count_three = st.columns(3)
-    count_one.metric("普通高等学校", "2,952 所")
+    count_one.metric("普通高等学校", f"{EXPECTED_INSTITUTION_COUNT:,} 所")
     count_two.metric("当前匹配", f"{len(results):,} 所")
-    count_three.metric("覆盖地区", "31 个")
+    count_three.metric("覆盖地区", f"{institutions['province'].nunique()} 个")
 
     st.subheader("搜索结果")
     if not query and province == "全部省份":
@@ -195,8 +195,9 @@ def main() -> None:
         st.write(f"**办学层次：** {selected['education_level']}")
         st.write(f"**学校标识码：** {selected['moe_id']}")
         st.write(f"**主管部门：** {selected['authority']}")
-        if selected["notes"]:
-            st.write(f"**备注：** {selected['notes']}")
+        notes = selected["notes"]
+        if pd.notna(notes) and str(notes).strip():
+            st.write(f"**备注：** {notes}")
         osm_query = quote_plus(f"{selected['name']} {selected['city']}")
         st.link_button("在 OpenStreetMap 中打开检索结果", f"https://www.openstreetmap.org/search?query={osm_query}")
         st.link_button("查看教育部名单来源", selected["source_url"])
