@@ -1,0 +1,17 @@
+# Python 虚拟环境与缓存
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Streamlit 本地配置可能含密钥
+.streamlit/secrets.toml
+
+# 编辑器和系统临时文件
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 下载后用于生成目录的原始文件
+work/
